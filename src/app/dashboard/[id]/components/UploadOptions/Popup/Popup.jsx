@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
- import "@src/app/components/Popup.css"
+ import "../../../../../components/Popup.css"
 import Image from 'next/image'
 
 

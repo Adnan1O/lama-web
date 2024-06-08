@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import logo from "../../../public/logo.png"
+import logo from "../../../../public/logo.png"
 import "./Sidebar.css"
 import Link from 'next/link'
 import { LuSettings } from "react-icons/lu";

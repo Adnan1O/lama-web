@@ -1,5 +1,6 @@
 import React from 'react'
-import cloud_upload from "../../../public/cloud_upload.png"
+import cloud_upload from "../../../../../../public/cloud_upload.png"
+
 import Image from 'next/image'
 import "./UploadFile.css"
 
