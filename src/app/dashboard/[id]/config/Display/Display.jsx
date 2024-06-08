@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import './Display.css'
 import Switch from 'react-switch';
 import Image from 'next/image';
-import placeholder from "../../../public/placeholder.png"
+import placeholder from "../../../../../../public/placeholder.png"
 import { MdOutlineFileUpload } from 'react-icons/md';
 import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';

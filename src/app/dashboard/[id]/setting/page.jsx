@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import profile from "../../../public/profile.png"
+import profile from "../../../../../public/profile.png"
 import "./setting.css"
 import { useRouter } from 'next/navigation'
 import { ToastContainer, toast } from 'react-toastify';
