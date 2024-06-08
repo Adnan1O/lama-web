@@ -1,0 +1,30 @@
+.UploadOptions{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 1rem;
+}
+.UploadOptions .upload-option-container{
+
+    display: flex;
+    /* justify-content: center; */
+    gap: 1rem;
+}
+.UploadOptions .upload-option{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    width: 16rem;
+    border: 1px solid #d6d6d6;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    gap: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.UploadOptions .upload-option .title-area{
+    display: flex;
+    color: #3C3C3C;
+    font-weight: 700;
+    flex-direction: column;
+}

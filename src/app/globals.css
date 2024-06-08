@@ -16,14 +16,28 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2{
+  font-size: 45px;
+  color:#7E22CE ;
+  font-weight: 700;
+}
+input{
+  outline: none;
+}
+p{
+  font-size: 18px;
+  color: #838383;
+  font-weight: 400;
+}
+
+svg{
+  cursor: pointer;
 }
 
 @layer utilities {

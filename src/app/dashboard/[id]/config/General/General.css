@@ -1,0 +1,30 @@
+
+.general{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 700px;
+    color: #3C3C3C;
+}
+.general-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.general-inputs label{
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.general-inputs input{
+    border: 1px solid rgb(209, 209, 209);
+    padding: 0.3rem;
+    border-radius: 0.2rem;
+}
+.general button{
+    background-color:#7E22CE ;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    color: white;
+    font-weight: 600;
+}

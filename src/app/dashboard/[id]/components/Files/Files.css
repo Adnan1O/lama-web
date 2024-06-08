@@ -1,0 +1,61 @@
+
+.files-table {
+    margin: 20px 0;
+    overflow: hidden; 
+    border-radius: 10px;
+    border: 1px solid #ddd; 
+    max-width: 800px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .files-table table {
+    width: 100%;
+
+    border-collapse: collapse;
+    color: #3C3C3C;
+  }
+  
+  .files-table th,
+  .files-table td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  
+  .files-table tr {
+    transition: 0.2s ease-in;
+    border-bottom: 1px solid #ddd;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  .files-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .files-table button {
+    width: 3rem;
+    height: 2rem;
+    font-size: 0.8rem;
+    border: 1px solid #ddd;
+    background-color: #fff; 
+  }
+  
+  .files-table .edit-btn {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  .files-table .edit-btn:hover {
+    background-color: white;
+  }
+  .files-table .delete-btn {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: red;
+  }
+  .files-table .delete-btn:hover {
+    background-color: white;
+  }
+  
+
+  

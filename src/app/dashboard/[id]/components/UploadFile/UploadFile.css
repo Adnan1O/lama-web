@@ -1,0 +1,36 @@
+
+.UploadFile{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 2rem;
+}
+/* .UploadFile p{
+    align-self: center;
+} */
+.UploadFile .file-box{
+     border: 3px dotted #999999 ;
+     border-radius: 0.5rem;
+     width: 700px;
+     height: 300px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+}
+.UploadFile .file-box .box-txt{
+    display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 0.3rem;
+}
+.UploadFile .file-box .box-txt button{
+    border: 1px solid #7E22CE;
+    color: #7E22CE;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 20px;
+
+}

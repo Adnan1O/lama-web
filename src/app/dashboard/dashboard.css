@@ -1,0 +1,25 @@
+.dashboard{
+ padding: 1rem 3rem;
+}
+
+.dashboard .heading-area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dashboard .heading-area button{
+   background-color: #211935 ;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 0.4rem;
+   border-radius: 0.5rem;
+   padding: 1rem;
+   color: white;
+    height: 3rem;
+}
+.projects-container{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}

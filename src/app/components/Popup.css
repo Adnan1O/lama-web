@@ -1,0 +1,87 @@
+.popup-page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+}
+
+.popup-page .overlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(165, 165, 165, 0.6);
+    position: absolute;
+
+}
+
+.popup-container {
+    height: auto;
+    width: 500px;
+    background-color: white;
+    position: relative;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    gap: 1rem;
+    border-radius: 15px;
+    padding: 1rem;
+    z-index: 10; 
+}
+.popup-container h3{
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+.popup-container .input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.popup-container label{
+    color: #6b6b6b;
+    font-size: 0.9rem;
+}
+.popup-container input{
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    color: #6b6b6b;
+}
+.popup-container .img-title{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.popup-container span{
+    color: red;
+    font-size: 0.9rem;
+}
+.btn-area{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+.btn-area .cancel{
+    background-color: transparent;
+    color: red;
+    padding: 0.3rem;
+    font-size: 1rem;
+}
+.btn-area .create{
+    background-color: #7E22CE;
+    color: white;
+    padding: 0.3rem;
+    font-size: 1rem;
+}
+.btn-area .upload-btn{
+    background-color: #211935;
+    color: white;
+    padding: 0.3rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}

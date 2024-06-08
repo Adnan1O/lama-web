@@ -1,0 +1,44 @@
+.pro-container{
+    display: flex;
+    align-items: center;
+    height: 6.5rem;
+    width: 20rem;
+    border: 1px solid #d6d6d6;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    gap: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.pro-container .initials{
+    background-color: #7E22CE;
+    height: 100% ;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+}
+.pro-container .initials h1{
+    color: white;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 700;
+}
+.pro-container  .text-area{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.text-area .text-init{
+    display: flex;
+    flex-direction: column;
+}
+.pro-container  .text-area span{
+    color: #7E22CE;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.pro-container  .text-area small{
+    color:#3C3C3C ;
+}

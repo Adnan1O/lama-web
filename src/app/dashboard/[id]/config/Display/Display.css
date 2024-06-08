@@ -1,0 +1,74 @@
+.display{
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    color: #3C3C3C;
+}
+.display .top-half{
+    border-bottom: 2px solid rgb(206, 206, 206);
+
+}
+.display .top-half, .display .bottom-half{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 1rem;
+}
+.display .two-inputs{
+    display: flex;
+    justify-content: space-between;
+}
+.display .two-inputs .input-color{
+    display: flex;
+    gap: 1rem;
+}
+.display .two-inputs .input-color .color-display{
+
+    width: 2.5rem;
+    border-radius: 0.2rem;
+    border: 0.5px solid rgb(206, 206, 206);
+}
+.display .top-half .toggle-area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.display .top-half .toggle-area .text-source{
+    display: flex;
+    flex-direction: column;
+}
+.two-inputs .general-inputs select{
+    border: 1px solid rgb(209, 209, 209);
+    padding: 0.3rem ;
+    border-radius: 0.2rem;
+    outline: none;
+}
+.display .bottom-half .img-upload {
+       display: flex;
+       flex-direction: column;
+       gap: 1rem;
+}
+.display .bottom-half .img-upload .img-upload-area{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.display .bottom-half .img-upload .img-upload-area button{
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+.display .bottom-half .img-upload .img-upload-area button svg{
+    font-size: 1.5rem;
+}
+.display  button{
+background-color:#7E22CE ;
+width: 6rem;
+height: 2rem;
+border-radius: 0.2rem;
+color: white;
+font-weight: 600; 
+}

@@ -1,0 +1,27 @@
+
+.config{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.config .tab-bar{
+    font-size: 1.2rem;
+    font-weight: 400;
+    display: flex;
+ gap: 0.5rem;
+ border-bottom: 1px solid rgb(209, 209, 209);
+ max-width: 700px;
+}
+.config .tab-bar span{
+
+    width: 7rem;
+    text-align: start;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+}
+.config .tab-bar .active{
+    color: #7E22CE;
+    font-weight: 700;
+    border-bottom: 3px solid #7E22CE;
+    /* padding-left: 0.4rem; */
+}

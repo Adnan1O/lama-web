@@ -1,0 +1,32 @@
+.navbar  .col-one {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  .col-one img{
+    cursor: pointer;
+  }
+  .icons-container {
+    display: flex;
+    gap: 2rem;
+  }
+  .icons-container svg{
+    font-size: xx-large;
+  }
+
+  .back-home-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.3rem;
+    width: 9rem;
+    margin-left: 10rem;
+    border-radius: 1rem;
+    color: #3C3C3C;
+    border: 0.75px solid #999999;
+    cursor: pointer;
+    /* box-shadow: 2px 7px 30px #999999; */
+ 
+  }

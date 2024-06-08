@@ -1,0 +1,25 @@
+.topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.topbar .topbar-one{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.topbar .topbar-one svg{
+    font-size: 1.8rem;
+    color:#7E22CE ;
+}
+.topbar .topbar-one p{
+    font-weight: 500;
+}
+.topbar .topbar-one h3{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color:#7E22CE ;
+}
+.topbar .topbar-two svg{
+    font-size: 1.8rem;
+}
