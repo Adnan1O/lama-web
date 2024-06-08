@@ -3,14 +3,11 @@ import Image from 'next/image'
 import { LuSettings } from "react-icons/lu";
 import { FaRegBell } from "react-icons/fa";
 import { MdOutlineHome } from "react-icons/md";
-import logo from "@public/logo.png"
+import logo from "../../../public/logo.png"
 import "./Navbar.css"
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
-import login from "@public/login.png"
-import { useEffect, useState } from 'react';
 
-import Login from './Login';
 const Navbar = () => {
   const pathname = usePathname()
 

@@ -1,9 +1,9 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image'
-import youtube from "@public/youtube.png"
-import stotify from "@public/stotify.png"
-import range from "@public/range.png"
+import youtube from "../../../public/youtube.png"
+import stotify from "../../../public/stotify.png"
+import range from "../../../public/range.png"
 import "./UploadOptions.css"
 import Popup from './Popup/Popup'
 

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import "./dashboard.css"
 import Image from 'next/image'
-import plusicon from "@public/plusicon.svg"
+import plusicon from "../../../public/plusicon.svg"
 import Project from './project'
 import Popup from '../components/Popup'
 

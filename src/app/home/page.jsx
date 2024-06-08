@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import "./home.css"
 import Image from 'next/image'
-import home from "@public/home.png"
-import plusicon from "@public/plusicon.svg"
+import home from "../../../public/home.png"
+import plusicon from "../../../public/plusicon.svg"
 import Popup from '../components/Popup'
 import Login from '../components/Login';
 import { ToastContainer, toast } from 'react-toastify';
