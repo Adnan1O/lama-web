@@ -46,7 +46,7 @@ const Setting = () => {
      })
      const jsonData = await response.json()
      setUserName(jsonData)
-     toast.success('file deleted successfully')
+     toast.success('Name changed successfully')
   } catch (error) {
     toast.error('error occured please try again later');
     console.error(error.message);
