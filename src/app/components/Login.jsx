@@ -4,7 +4,7 @@ const Login = ({closePopup, onChange}) => {
 
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
-
+  const BASE_URL = process.env.BASE_URL || "http://localhost:5001/api";
   const EmailInput=(e)=>{
     setError('')
     setEmail(e.target.value)
@@ -14,7 +14,7 @@ const Login = ({closePopup, onChange}) => {
   const UserLogin =async (e)=>{
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5001/api/login",{
+      const response = await fetch(`${BASE_URL}/login`,{
         method:"POST",
         headers:{
           'Content-Type':"application/json"
