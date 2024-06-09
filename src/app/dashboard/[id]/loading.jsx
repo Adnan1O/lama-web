@@ -3,8 +3,8 @@ import logo from "../../../../public/logo.png"
 export default function Loading() {
 
     return (
-      <div className="">
-      <Image style={{alignSelf:"center"}} src={logo} height={30} width={30} />
+      <div className="" style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
+      <Image style={{alignSelf:"center"}} src={logo} height={80} width={80} />
     </div>
     )
   }

@@ -7,6 +7,9 @@ const Popup = ({closePopup}) => {
 const [title, setTitle] = useState('')
 const [error, setError] = useState('')
 const router = useRouter()
+const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
+
+
 const TitleInput=(e)=>{
   setError('')
   setTitle(e.target.value)
@@ -17,7 +20,7 @@ const CreateProject =async (e)=>{
   e.preventDefault();
   try {
     const user = localStorage.getItem('user')
-    const response = await fetch("http://localhost:5001/api/createproject",{
+    const response = await fetch(`${BASE_URL}/createproject`,{
       method:"POST",
       headers:{
         'Content-Type':"application/json"

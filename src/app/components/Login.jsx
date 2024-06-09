@@ -1,20 +1,24 @@
-import React, { useState } from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import "./Popup.css"
 const Login = ({closePopup, onChange}) => {
 
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
-  const BASE_URL = process.env.BASE_URL || "http://localhost:5001/api";
+  const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
   const EmailInput=(e)=>{
     setError('')
     setEmail(e.target.value)
   }
 
+  useEffect(()=>{
+      console.log(BASE_URL)
+  },[])
 
   const UserLogin =async (e)=>{
     e.preventDefault();
     try {
-      const response = await fetch(`${BASE_URL}/login`,{
+      const response = await fetch(`https://app.sheikhafatimahospital.com/api/login`,{
         method:"POST",
         headers:{
           'Content-Type':"application/json"

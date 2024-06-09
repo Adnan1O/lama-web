@@ -5,13 +5,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/navigation'
 const Files = ({ projectId,projectData, params, onChange  }) => {
   const router = useRouter()
+  const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
+
+
+
+
   const handleEdit = (id) => {
     const transcript = params.id
     router.push(`/dashboard/${transcript}/${id}`, { scroll: false })
   };
   const DeleteFile =async (id) => {
     try {
-      const response = await fetch(`http://localhost:5001/api/deleteFile/${projectId}/${id}`, { method: 'DELETE' })
+      const response = await fetch(`${BASE_URL}/deleteFile/${projectId}/${id}`, { method: 'DELETE' })
       if (!response.ok) {
         return toast.error('error occured please try again later');
       }

@@ -5,10 +5,11 @@ const General = ({params}) => {
   const [chatbotName, setChatbotName] = useState('');
   const [welcomeMessage, setWelcomeMessage] = useState('');
   const [inputPlaceholder, setInputPlaceholder] = useState('');
+  const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
 
   const checkValues=async()=>{
     try {
-        const response = await fetch(`http://localhost:5001/api/checkvalues/${params.id}`)
+        const response = await fetch(`${BASE_URL}/checkvalues/${params.id}`)
         const jsonData = await response.json()
         console.log(jsonData)
         setChatbotName(jsonData.name? jsonData.name : "")
@@ -32,7 +33,7 @@ const General = ({params}) => {
         inputPlaceholder,
       };
 console.log(body)
-      const response = await fetch('http://localhost:5001/api/chatbotconfig', {
+      const response = await fetch(`${BASE_URL}/chatbotconfig`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

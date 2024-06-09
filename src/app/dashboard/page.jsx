@@ -12,6 +12,7 @@ const Dashboard = () => {
     
     const [projects, setProjects] = useState([])
     const [openPopup, setOpenPopup] = useState(false)
+    const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
 
 
     const tab=()=>{
@@ -26,7 +27,7 @@ const Dashboard = () => {
     const getProjects = async()=>{
         console.log("calling the api")
         const user = localStorage.getItem('user')
-        const response = await fetch(`http://localhost:5001/api/getProject?user=${user}`)
+        const response = await fetch(`${BASE_URL}/getProject?user=${user}`)
         const jsonData = await response.json();
         setProjects(jsonData)
         console.log(jsonData)

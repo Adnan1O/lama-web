@@ -9,6 +9,7 @@ const IndividualPage = ({params}) => {
     
     const [projectData, setProjectData] = useState([])
     const [updateState, setUploadeState] = useState(false)
+    const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
 
 
     const handleChange = () => {
@@ -17,7 +18,7 @@ const IndividualPage = ({params}) => {
 
     const FileData = async ()=>{
         try {
-            const response = await fetch(`http://localhost:5001/api/getProjectFiles/${params.id}`)
+            const response = await fetch(`${BASE_URL}/getProjectFiles/${params.id}`)
             const jsonData = await response.json()
             console.log(jsonData)
             setProjectData(jsonData)

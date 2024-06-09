@@ -13,6 +13,7 @@ const Setting = () => {
   const [userName, setUserName] = useState('')
   const [disable, setDisable] = useState(true)
   const router = useRouter()
+  const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
 
   const getUserDetails=async()=>{
     try {
@@ -20,7 +21,7 @@ const Setting = () => {
       if (!user) {
         router.push('/', { scroll: false })
       }
-      const response = await fetch(`http://localhost:5001/api/getUserName/${user}`)
+      const response = await fetch(`${BASE_URL}/getUserName/${user}`)
       if (!response.ok) {
         setUserName('')
       }
@@ -36,7 +37,7 @@ const Setting = () => {
  const updateUserName =async()=>{
   try {
     const user = localStorage.getItem('user')
-     const response = await fetch('http://localhost:5001/api/updateUserName',{
+     const response = await fetch(`${BASE_URL}/updateUserName`,{
       method:"POST",
       headers:{
         'Content-Type': 'application/json'

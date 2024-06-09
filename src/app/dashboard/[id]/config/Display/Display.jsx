@@ -22,11 +22,12 @@ const Display = ({params}) => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [imageUrl, setImageUrl] = useState('');
     const [disable, setDisable] = useState(false)
+    const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
 
     useEffect(() => {
         const checkValues = async () => {
           try {
-            const response = await fetch(`http://localhost:5001/api/checkvalues/${params.id}`);
+            const response = await fetch(`${BASE_URL}/checkvalues/${params.id}`);
             const jsonData = await response.json();
             setPrimaryColor(jsonData.primaryColor || '#');
             setFontColor(jsonData.fontColor || '#');
@@ -64,7 +65,7 @@ const Display = ({params}) => {
         };
     
         try {
-          const response = await fetch('http://localhost:5001/api/chatbotconfig', {
+          const response = await fetch(`${BASE_URL}/chatbotconfig`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -101,7 +102,7 @@ const Display = ({params}) => {
           formData.append('image', selectedFile);
           formData.append('id', params.id);
     
-          const response = await fetch('http://localhost:5001/api/uploadImage', {
+          const response = await fetch(`${BASE_URL}/uploadImage`, {
             method: 'POST',
             body: formData,
           });

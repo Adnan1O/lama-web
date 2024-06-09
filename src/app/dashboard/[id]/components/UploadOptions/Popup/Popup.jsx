@@ -8,6 +8,7 @@ const Popup = ({handleAddFile,selectedTab,closePopup, params,onChange}) => {
 const [fileName, setFileName] = useState('')
 const [description, setDescription] = useState('')
 const [error, setError] = useState('')
+const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
 
 
 const FileNameInput=(e)=>{
@@ -24,7 +25,7 @@ const UploadData =async (e)=>{
   e.preventDefault();
   try {
     const user = localStorage.getItem('user')
-    const response = await fetch("http://localhost:5001/api/UploadData",{
+    const response = await fetch(`${BASE_URL}/UploadData`,{
       method:"POST",
       headers:{
         'Content-Type':"application/json"

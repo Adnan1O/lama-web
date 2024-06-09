@@ -10,12 +10,14 @@ const Transcript = ({params}) => {
     const router = useRouter()
     const [script, setScript]= useState('')
     const [edit, setEdit] = useState(false)
+  const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
+
 
     useEffect(()=>{
         const GetTranscript=async()=>{           
         try {
             const { transcript: projectId, id: fileId } = params;
-            const response = await fetch(`http://localhost:5001/api/GetTranscript/${projectId}/${fileId}`)
+            const response = await fetch(`${BASE_URL}/GetTranscript/${projectId}/${fileId}`)
             const jsonData = await response.json()
             setScript(jsonData.description)
             console.log(jsonData)
@@ -29,7 +31,7 @@ const Transcript = ({params}) => {
    const editTrans = async()=>{
         try {
             const { transcript: projectId, id: fileId } = params;
-            const response = await fetch(`http://localhost:5001/api/updateScript`,{
+            const response = await fetch(`${BASE_URL}/updateScript`,{
                 method:"POST",
                 headers:{
                     'Content-Type':"application/json"
