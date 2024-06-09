@@ -1,4 +1,10 @@
+import Image from "next/image"
+import logo from "../../../../public/logo.png"
 export default function Loading() {
-    // You can add any UI inside Loading, including a Skeleton.
-    return <h1>loading...</h1>
+
+    return (
+      <div className="">
+      <Image style={{alignSelf:"center"}} src={logo} height={30} width={30} />
+    </div>
+    )
   }
