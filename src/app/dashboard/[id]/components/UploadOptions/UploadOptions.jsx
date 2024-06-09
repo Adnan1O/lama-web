@@ -31,7 +31,7 @@ const uploadOptionsData = [
   }
 ]
 
-const UploadOptions = ({params, handleAddFile}) => {
+const UploadOptions = ({params, handleAddFile, onChange}) => {
 
     const [openPopup, setOpenPopup] = useState(false)
     const [selectedTab, setSelectedTab] = useState([])
@@ -64,7 +64,7 @@ const UploadOptions = ({params, handleAddFile}) => {
       ))}
               </div>
               {
-      openPopup && <Popup handleAddFile={handleAddFile} selectedTab={selectedTab} closePopup={closePopup} params={params} />
+      openPopup && <Popup onChange={onChange} handleAddFile={handleAddFile} selectedTab={selectedTab} closePopup={closePopup} params={params} />
     }
     </div>
   )

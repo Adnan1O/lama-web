@@ -13,6 +13,7 @@ const Dashboard = () => {
     const [projects, setProjects] = useState([])
     const [openPopup, setOpenPopup] = useState(false)
 
+
     const tab=()=>{
       setOpenPopup(prveState=> !prveState)
 
@@ -52,7 +53,7 @@ const Dashboard = () => {
         
       </div>
       {
-      openPopup && <Popup closePopup={closePopup}  />
+      openPopup && <Popup  closePopup={closePopup}  />
     }
     </div>
   )

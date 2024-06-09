@@ -91,6 +91,7 @@ const userNameChange =(e)=>{
       <span>cancel subscription</span>
       </div>
       <ToastContainer 
+        closeButton={false}
         position="top-center"/>
     </div>
   )

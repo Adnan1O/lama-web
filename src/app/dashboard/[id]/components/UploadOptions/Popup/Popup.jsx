@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 
 
-const Popup = ({handleAddFile,selectedTab,closePopup, params}) => {
+const Popup = ({handleAddFile,selectedTab,closePopup, params,onChange}) => {
 const [fileName, setFileName] = useState('')
 const [description, setDescription] = useState('')
 const [error, setError] = useState('')
@@ -34,9 +34,11 @@ const UploadData =async (e)=>{
 
     if (response.ok) {
       // router.push('/dashboard')
+      onChange()
       const jsonData = await response.json()
-      console.log(jsonData)
+      console.log(jsonData)     
        closePopup()
+
 
     }else{
       const jsonData = await response.json()
@@ -62,18 +64,16 @@ const UploadData =async (e)=>{
       type="" id="" name="" placeholder='Type here' />
       </div>
       <div className="input-container">
-      <label htmlFor="email">Link</label>
+      <label htmlFor="email">description</label>
       <input
       onChange={DescriptionInput}
       type="" id="" name="" placeholder='Enter description' />
       <span>{error &&(error)}</span>
       </div>
-      <div className="btn-area">
-        
+      <div className="btn-area">        
         <button
         onClick={UploadData}
         className='upload-btn'>upload</button>
-
       </div>
         </div>
     </div>

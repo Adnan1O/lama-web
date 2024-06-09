@@ -6,7 +6,8 @@ import Image from 'next/image';
 import placeholder from "../../../../../../public/placeholder.png"
 import { MdOutlineFileUpload } from 'react-icons/md';
 import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import ImageUpload from './ImageUpload';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Display = ({params}) => {
     const [primaryColor, setPrimaryColor] = useState('#')
@@ -17,7 +18,7 @@ const Display = ({params}) => {
     const [iconPosition, setIconPosition] = useState('');
     const [distanceFromBottom, setDistanceFromBottom]= useState('')
     const [horizontalDistance, setHorizontalDistance]= useState('')
-    const [showSources, setShowSources] = useState(true);
+    const [showSources, setShowSources] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null);
     const [imageUrl, setImageUrl] = useState('');
     
@@ -35,17 +36,17 @@ const Display = ({params}) => {
             setIconPosition(jsonData.iconPosition || '');
             setDistanceFromBottom(jsonData.distanceFromBottom || '');
             setHorizontalDistance(jsonData.horizontalDistance || '');
-            setShowSources(jsonData.showSources !== undefined ? jsonData.showSources : true);
-            setStatus(jsonData.status !== undefined ? jsonData.status : true);
+            setShowSources(jsonData.showSources !== undefined ? jsonData.showSources : false);
+            // setImageUrl(jsonData.image || "");
+       
           } catch (error) {
             console.error(error);
           }
         };
     
         checkValues();
+        console.log(imageUrl)
       }, [params]);
-
-
 
     const submitDetails = async (e) => {
         e.preventDefault()
@@ -71,7 +72,7 @@ const Display = ({params}) => {
             body: JSON.stringify(body),
           });
             if (!response.ok) {
-                toast.error('error occured try later')
+               return toast.error('error occured try later')
             }
           const jsonData = await response.json();
           console.log(jsonData);
@@ -83,41 +84,38 @@ const Display = ({params}) => {
       };
 
 
-      const uploadImage = async (event) => {
-       
-        event.preventDefault();
-        const form = event.target.closest('form');
-        if (!form) {
-            console.error('Form element not found!');
-            return;
-        }
-        //  const formData = new FormData(e.currentTarget);
-        const formData = new FormData(form);
-        formData.append('image', selectedFile);    
+  const uploadImage = async (e) => {
+      e.preventDefault()
+        if (!selectedFile) {
+          console.error('No file selected!');
+          toast.error('Please select a file to upload.');
+          return;
+        }   
         try {
-            const response = await fetch('http://localhost:5001/api/uploadImage', {
-                method: 'POST',
-                body: formData,
-            });    
-            if (!response.ok) {
-                console.log("error")
-            }    
-            const jsonData = await response.json();
-            console.log('Image URL:', jsonData.imageUrl);
-            setImageUrl(jsonData.imageUrl);
-        } catch (error) {
-            console.error('Image upload error:', error.message);
-            throw error;
-        }
-    };
+          const formData = new FormData();
+          formData.append('image', selectedFile);
+          formData.append('id', params.id);
     
-    // // Usage example:
-    // try {
-    //     const imageUrl = await uploadImage(selectedFile);
-    //     // Use the imageUrl as needed
-    // } catch (error) {
-    //     // Handle error
-    // }
+          const response = await fetch('http://localhost:5001/api/uploadImage', {
+            method: 'POST',
+            body: formData,
+          });
+    
+          if (!response.ok) {
+            console.error('Server responded with an error:', response.status);
+           toast.error('Image upload failed. Please try again.');
+            return;
+          }    
+          const jsonData = await response.json();
+          console.log('Image URL:', jsonData.imageUrl);
+          // setImageUrl(jsonData.imageUrl);
+          // window.location.reload()
+          toast.success('Image uploaded successfully!');
+        } catch (error) {
+          console.error('Image upload error:', error.message);
+          toast.error('An error occurred during the image upload.');
+        }
+      };
 
     const toggleChange = () => {
         setShowSources(prvestate => !prvestate);
@@ -257,23 +255,33 @@ const Display = ({params}) => {
       <div className="img-upload">
       <strong>Bot Icon</strong>
         <div className="img-upload-area">
-            <Image src={imageUrl ? imageUrl : placeholder} height={80} width={80} alt='bot icon' />
+        {imageUrl ? (
+        <Image src={`${imageUrl}`} height={80} width={80} alt='uploaded bot icon' />
+      ) : (
+        <Image src={placeholder} height={80} width={80} alt='bot icon' />
+      )}
       <div className="btn-small">
+      {/* <form ref={formRef} onSubmit={uploadImage}> */}
       <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => setSelectedFile(e.target.files[0])}
-                            id="upload-button"
-                        />
+          type="file"
+          accept="image/*"
+          onChange={(e) => setSelectedFile(e.target.files[0])}
+          id="upload-button"
+      />
+                        
       <button onClick={uploadImage} >Upload Image <MdOutlineFileUpload /></button>
+      {/* </form> */}
       <small>Recommended Size: 48x48px</small>
       </div>
 
         </div>
       </div>
       <button onClick={submitDetails}>Submit</button>
+      {/* <ImageUpload/> */}
      </div>
-     <ToastContainer />
+     <ToastContainer 
+        closeButton={false}
+        position="top-center"/>
     </div>
   )
 }

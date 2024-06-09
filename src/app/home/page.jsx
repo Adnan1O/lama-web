@@ -8,11 +8,17 @@ import Popup from '../components/Popup'
 import Login from '../components/Login';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaArrowRight } from 'react-icons/fa';
 const HomePage = () => {
   const [openPopup, setOpenPopup] = useState(false)
   const [showLoginPopup, setShowLoginPopup] = useState(true)
   const [userLoggedIn, setUserLoggedIn] = useState(false)
+  const [sharedState, setSharedState] = useState(false);
 
+
+  const handleChange = () => {
+    setSharedState(true);
+  };
   const closePopup=()=>{
     setOpenPopup(false)
     setShowLoginPopup(true)
@@ -22,7 +28,7 @@ const HomePage = () => {
     const user = localStorage.getItem('user')
     setShowLoginPopup(!!user);
     setUserLoggedIn(!!user)
-  },[userLoggedIn])
+  },[userLoggedIn,sharedState])
 
   const createProjectBtn=()=>{
       
@@ -45,16 +51,23 @@ const HomePage = () => {
         <button
          onClick={createProjectBtn} ><Image src={plusicon} height={30} width={30}/>Create New Project</button>
     {
-      !showLoginPopup && <Login closePopup={closePopup}/>
+      !showLoginPopup && <Login  onChange={handleChange} closePopup={closePopup}/>
     }
     {
       openPopup && <Popup closePopup={closePopup} />
     }
-      <ToastContainer 
-      //  autoClose={5000}
-      //   hideProgressBar={true}
+
+
+      {
+        !userLoggedIn && <button 
+        className='login-btn'
+         onClick={()=>setShowLoginPopup(prveState=> !prveState)}>
+          Login<FaArrowRight /> </button>
+      }     
+    <ToastContainer 
         closeButton={false}
         position="top-center"/>
+    
     </div>
   )
 }

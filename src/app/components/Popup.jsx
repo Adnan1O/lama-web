@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import "./Popup.css"
 import { useRouter } from 'next/navigation'
+
 const Popup = ({closePopup}) => {
 const [title, setTitle] = useState('')
 const [error, setError] = useState('')
@@ -26,8 +27,9 @@ const CreateProject =async (e)=>{
 
     if (response.ok) {
       router.push('/dashboard')
+      
       const jsonData = await response.json()
-       closePopup()
+
 
     }else{
       const jsonData = await response.json()

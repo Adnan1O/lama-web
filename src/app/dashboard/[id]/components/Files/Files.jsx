@@ -2,18 +2,22 @@ import React from 'react';
 import "./Files.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const Files = ({ projectId,projectData  }) => {
-
+import { useRouter } from 'next/navigation'
+const Files = ({ projectId,projectData, params, onChange  }) => {
+  const router = useRouter()
   const handleEdit = (id) => {
-   
+    const transcript = params.id
+    router.push(`/dashboard/${transcript}/${id}`, { scroll: false })
   };
   const DeleteFile =async (id) => {
     try {
       const response = await fetch(`http://localhost:5001/api/deleteFile/${projectId}/${id}`, { method: 'DELETE' })
       if (!response.ok) {
-        toast.error('error occured please try again later');
+        return toast.error('error occured please try again later');
       }
-      toast.success('file deleted successfully')
+      onChange()
+       toast.success('file deleted successfully')
+     
     } catch (error) {
       toast.error('error occured please try again later');
       console.error(error);
@@ -50,6 +54,7 @@ const Files = ({ projectId,projectData  }) => {
         </tbody>
       </table>
       <ToastContainer 
+        closeButton={false}
         position="top-center"/>
     </div>
   );

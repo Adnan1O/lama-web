@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./Popup.css"
-const Login = ({closePopup}) => {
+const Login = ({closePopup, onChange}) => {
 
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
@@ -30,6 +30,7 @@ const Login = ({closePopup}) => {
       if (response.ok) {
         const jsonData = await response.json()
          localStorage.setItem('user', jsonData)
+         onChange()
          closePopup()
       }else{
         const jsonData = await response.json()
