@@ -21,7 +21,7 @@ const Display = ({params}) => {
     const [showSources, setShowSources] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null);
     const [imageUrl, setImageUrl] = useState('');
-    
+    const [disable, setDisable] = useState(false)
 
     useEffect(() => {
         const checkValues = async () => {
@@ -83,6 +83,11 @@ const Display = ({params}) => {
         }
       };
 
+
+      const imageInput=(e)=>{
+        setSelectedFile(e.target.files[0])
+        setDisable(!disable)
+      }
 
   const uploadImage = async (e) => {
       e.preventDefault()
@@ -265,11 +270,11 @@ const Display = ({params}) => {
       <input
           type="file"
           accept="image/*"
-          onChange={(e) => setSelectedFile(e.target.files[0])}
+          onChange={imageInput}
           id="upload-button"
       />
                         
-      <button onClick={uploadImage} >Upload Image <MdOutlineFileUpload /></button>
+      <button disabled={!disable} style={{background:!disable?"grey" : ""}}  onClick={uploadImage} >Upload Image <MdOutlineFileUpload /></button>
       {/* </form> */}
       <small>Recommended Size: 48x48px</small>
       </div>
