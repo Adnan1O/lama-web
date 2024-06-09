@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './General.css';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const General = ({params}) => {
   const [chatbotName, setChatbotName] = useState('');
   const [welcomeMessage, setWelcomeMessage] = useState('');
@@ -40,9 +41,12 @@ console.log(body)
         },
         body: JSON.stringify(body),
       });
-
+      if (!response.ok) {
+        return toast.error('error occured try later')
+     }
       const jsonData = await response.json();
       console.log(jsonData);
+      toast.success('details updated successfully')
     } catch (error) {
       console.error(error);
     }
@@ -81,6 +85,9 @@ console.log(body)
         <small>Lorem ipsum dolor sit Lorem ipsum dolor sit</small>
       </div>
       <button onClick={submitDetails}>Submit</button>
+      <ToastContainer 
+        closeButton={false}
+        position="top-center"/>
     </div>
   );
 };
