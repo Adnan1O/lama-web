@@ -6,7 +6,7 @@ import Image from 'next/image';
 import placeholder from "../../../../../../public/placeholder.png"
 import { MdOutlineFileUpload } from 'react-icons/md';
 import { ToastContainer, toast } from 'react-toastify';
-import ImageUpload from './ImageUpload';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 const Display = ({params}) => {
