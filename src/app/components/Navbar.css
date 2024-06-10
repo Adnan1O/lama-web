@@ -30,3 +30,15 @@
     /* box-shadow: 2px 7px 30px #999999; */
  
   }
+  @media (max-width:500px) {
+    .back-home-btn{
+      margin-left: 7.5rem;
+  
+    }
+    .icons-container svg{
+      font-size: x-large;
+    }
+    .navbar .logo{
+      width: 150px;
+    }
+  }

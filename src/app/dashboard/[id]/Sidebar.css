@@ -57,3 +57,8 @@
     align-items: start;
     justify-content: start;
 }
+@media (max-width:500px) {
+    .sidebar{
+        display: none;
+    }
+}

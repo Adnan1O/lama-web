@@ -18,6 +18,7 @@
 .display .two-inputs{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .display .two-inputs .input-color{
     display: flex;
@@ -74,4 +75,9 @@ font-weight: 600;
 display: flex;
 align-items: center;
 justify-content: center;
+}
+@media (max-width:500px) {
+    .display .two-inputs{
+        gap: 0.5rem;
+    }
 }

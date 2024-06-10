@@ -48,7 +48,7 @@ const HomePage = () => {
   return (
     <div className='homepage'>
       <h2>Create a New Project</h2>
-      <Image src={home} height={400} width={400} alt='banner' />
+      <Image className='banner' src={home} height={400} width={400} alt='banner' />
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</p>
         <button
          onClick={createProjectBtn} ><Image src={plusicon} height={30} width={30}/>Create New Project</button>

@@ -9,6 +9,7 @@
     display: flex;
     /* justify-content: center; */
     gap: 1rem;
+    flex-wrap: wrap;
 }
 .UploadOptions .upload-option{
     display: flex;
@@ -27,4 +28,11 @@
     color: #3C3C3C;
     font-weight: 700;
     flex-direction: column;
+}
+
+@media (max-width:500px) {
+    .UploadOptions .upload-option-container{
+       align-items: center;
+       justify-content: center;
+    }
 }

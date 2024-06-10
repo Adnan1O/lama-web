@@ -30,3 +30,22 @@
   margin-right: 1rem;
   top: 5rem;
 }
+@media (max-width:500px) {
+  .homepage{
+    padding-top: 1rem;
+    gap: 1rem;
+}
+.homepage .banner{
+  height: 250px;
+  width: 300px;
+  object-fit: contain;
+}
+  .homepage p {
+    margin: 0 5%; 
+    text-align: center;
+  }
+  .homepage button{   
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+}

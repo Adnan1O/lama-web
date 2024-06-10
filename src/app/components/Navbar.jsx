@@ -31,7 +31,7 @@ const Navbar = () => {
     <div className='navbar' >
         <div className="col-one">
           <Link href='/'>
-        <Image src={logo} width={200} height={200} alt='LAMA' />
+        <Image className='logo' src={logo} width={200} height={200} alt='LAMA' />
         </Link>
       <div className="icons-container">
       <LuSettings />

@@ -40,6 +40,12 @@ svg{
   cursor: pointer;
 }
 
+@media (max-width:500px) {
+  h2{
+    font-size: 30px;
+    
+  }
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;

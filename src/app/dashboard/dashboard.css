@@ -23,3 +23,18 @@
     gap: 2rem;
     flex-wrap: wrap;
 }
+@media (max-width:500px) {
+    .dashboard{
+        padding: 1rem 1rem;
+       }
+       .dashboard .heading-area button{        
+        padding: 0.5rem;
+         height: 2.5rem;
+         font-size: 15px;
+     }
+     .dashboard{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+     }
+  }
