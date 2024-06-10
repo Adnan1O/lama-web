@@ -6,12 +6,15 @@ import "./setting.css"
 import { useRouter } from 'next/navigation'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Oval } from "react-loader-spinner";
 
 const Setting = () => {
 
   const [emailId, setEmailId] = useState('')
   const [userName, setUserName] = useState('')
   const [disable, setDisable] = useState(true)
+  const [loading, setLoading] = useState(false)
+
   const router = useRouter()
   const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
 
@@ -36,6 +39,7 @@ const Setting = () => {
 
  const updateUserName =async()=>{
   try {
+    setLoading(true)
     const user = localStorage.getItem('user')
      const response = await fetch(`${BASE_URL}/updateUserName`,{
       method:"POST",
@@ -46,10 +50,12 @@ const Setting = () => {
      })
      const jsonData = await response.json()
      setUserName(jsonData)
+     setLoading(false)
      toast.success('Name changed successfully')
   } catch (error) {
     toast.error('error occured please try again later');
     console.error(error.message);
+    setLoading(false)
   }
  }
 const userNameChange =(e)=>{
@@ -80,7 +86,21 @@ const userNameChange =(e)=>{
         </div>
         {
           !disable &&
-        <button onClick={updateUserName}>Submit</button>       
+        <button onClick={updateUserName}>{
+          loading ? (
+            <Oval
+            visible={true}
+            height="20"
+            width="50"
+            color="#ffffff"
+            ariaLabel="oval-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+          ):(
+          "Submit"
+          )
+        }</button>       
 
         }
       </div>

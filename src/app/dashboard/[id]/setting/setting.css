@@ -58,6 +58,7 @@
     border-radius: 0.2rem;
     color: #7E22CE;
     font-weight: 600;
+   
 }
 .subscription span{
     color: red;
@@ -72,4 +73,7 @@
     color: white;
     border-radius: 0.2rem;
     margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

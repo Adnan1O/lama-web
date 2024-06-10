@@ -1,10 +1,13 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import "./Popup.css"
+import { Oval } from "react-loader-spinner";
+
 const Login = ({closePopup, onChange}) => {
 
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
   const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
   const EmailInput=(e)=>{
     setError('')
@@ -17,6 +20,7 @@ const Login = ({closePopup, onChange}) => {
 
   const UserLogin =async (e)=>{
     e.preventDefault();
+    setLoading(true)
     try {
       const response = await fetch(`https://app.sheikhafatimahospital.com/api/login`,{
         method:"POST",
@@ -39,8 +43,10 @@ const Login = ({closePopup, onChange}) => {
       }else{
         const jsonData = await response.json()
         setError(jsonData)
+        setLoading(false)
       }
     } catch (error) {
+      setLoading(false)
       setError(jsonData)
       console.error(error.message);
     }
@@ -61,7 +67,25 @@ const Login = ({closePopup, onChange}) => {
       </div>
       <div className="btn-area">
         <button onClick={closePopup} className='cancel'>Cancel</button>
-        <button onClick={UserLogin} className='create'>Login</button>
+        <button onClick={UserLogin} className='create'>
+          {
+            loading ? (
+              <Oval
+              visible={true}
+              height="20"
+              width="50"
+              color="#ffffff"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+            ):(
+            " Login"
+            )
+          }
+         
+          
+          </button>
       </div>
         </div>
     </div>

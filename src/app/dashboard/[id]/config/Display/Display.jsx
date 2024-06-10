@@ -6,7 +6,7 @@ import Image from 'next/image';
 import placeholder from "../../../../../../public/placeholder.png"
 import { MdOutlineFileUpload } from 'react-icons/md';
 import { ToastContainer, toast } from 'react-toastify';
-
+import { Oval } from "react-loader-spinner";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Display = ({params}) => {
@@ -22,6 +22,8 @@ const Display = ({params}) => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [imageUrl, setImageUrl] = useState('');
     const [disable, setDisable] = useState(false)
+  const [loading, setLoading] = useState(false)
+
     const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
 
     useEffect(() => {
@@ -51,6 +53,7 @@ const Display = ({params}) => {
 
     const submitDetails = async (e) => {
         e.preventDefault()
+        setLoading(true)
         const body = {
           project:params.id,
           primaryColor,
@@ -73,12 +76,15 @@ const Display = ({params}) => {
             body: JSON.stringify(body),
           });
             if (!response.ok) {
+              setLoading(false)
                return toast.error('error occured try later')
             }
           const jsonData = await response.json();
           console.log(jsonData);
+          setLoading(false)
           toast.success('details updated successfully')
         } catch (error) {
+          setLoading(false)
             toast.error('error occured try later')
           console.error(error);
         }
@@ -282,7 +288,21 @@ const Display = ({params}) => {
 
         </div>
       </div>
-      <button onClick={submitDetails}>Submit</button>
+      <button onClick={submitDetails}>{
+            loading ? (
+              <Oval
+              visible={true}
+              height="20"
+              width="50"
+              color="#ffffff"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+            ):(
+            "Submit"
+            )
+          }</button>
       {/* <ImageUpload/> */}
      </div>
      <ToastContainer 

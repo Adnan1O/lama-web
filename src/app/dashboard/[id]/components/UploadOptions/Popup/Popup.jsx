@@ -2,12 +2,15 @@
 import React, { useState } from 'react'
  import "../../../../../components/Popup.css"
 import Image from 'next/image'
+import { Oval } from "react-loader-spinner";
 
 
 const Popup = ({handleAddFile,selectedTab,closePopup, params,onChange}) => {
 const [fileName, setFileName] = useState('')
 const [description, setDescription] = useState('')
 const [error, setError] = useState('')
+const [loading, setLoading] = useState(false)
+
 const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
 
 
@@ -23,8 +26,13 @@ const DescriptionInput=(e)=>{
 
 const UploadData =async (e)=>{
   e.preventDefault();
+  setLoading(true)
+  const user = localStorage.getItem('user')
+  if (!fileName || !description || !user) {
+    setLoading(false)
+    return  setError("please fill all the details")
+  }
   try {
-    const user = localStorage.getItem('user')
     const response = await fetch(`${BASE_URL}/UploadData`,{
       method:"POST",
       headers:{
@@ -43,9 +51,13 @@ const UploadData =async (e)=>{
 
     }else{
       const jsonData = await response.json()
+      console.log(jsonData)
       setError(jsonData)
     }
+    setLoading(false)
+
   } catch (error) {
+    setLoading(false)
     setError(jsonData)
     console.error(error.message);
   }
@@ -74,7 +86,21 @@ const UploadData =async (e)=>{
       <div className="btn-area">        
         <button
         onClick={UploadData}
-        className='upload-btn'>upload</button>
+        className='upload-btn'> {
+          loading ? (
+            <Oval
+            visible={true}
+            height="20"
+            width="50"
+            color="#ffffff"
+            ariaLabel="oval-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+          ):(
+          " Upload"
+          )
+        }</button>
       </div>
         </div>
     </div>

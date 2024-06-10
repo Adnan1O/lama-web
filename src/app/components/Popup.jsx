@@ -2,10 +2,12 @@
 import React, { useState } from 'react'
 import "./Popup.css"
 import { useRouter } from 'next/navigation'
+import { Oval } from "react-loader-spinner";
 
 const Popup = ({closePopup}) => {
 const [title, setTitle] = useState('')
 const [error, setError] = useState('')
+const [loading, setLoading] = useState(false)
 const router = useRouter()
 const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
 
@@ -18,6 +20,7 @@ const TitleInput=(e)=>{
 
 const CreateProject =async (e)=>{
   e.preventDefault();
+  setLoading(true)
   try {
     const user = localStorage.getItem('user')
     const response = await fetch(`${BASE_URL}/createproject`,{
@@ -32,13 +35,15 @@ const CreateProject =async (e)=>{
       router.push('/dashboard')
       
       const jsonData = await response.json()
-
+    
 
     }else{
       const jsonData = await response.json()
       setError(jsonData)
     }
+    // setLoading(false)
   } catch (error) {
+    setLoading(false)
     setError(jsonData)
     console.error(error.message);
   }
@@ -59,7 +64,26 @@ const CreateProject =async (e)=>{
         <button onClick={closePopup} className='cancel'>Cancel</button>
         <button
         onClick={CreateProject}
-        className='create'>Create</button>
+        className='create'>
+          {
+            loading ? (
+              <Oval
+              visible={true}
+              height="20"
+              width="50"
+              color="#ffffff"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+            ):(
+              'Create'
+            )
+          }
+         
+      
+          
+          </button>
       </div>
         </div>
     </div>

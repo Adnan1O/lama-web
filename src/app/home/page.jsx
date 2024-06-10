@@ -9,6 +9,8 @@ import Login from '../components/Login';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaArrowRight } from 'react-icons/fa';
+
+
 const HomePage = () => {
   const [openPopup, setOpenPopup] = useState(false)
   const [showLoginPopup, setShowLoginPopup] = useState(true)

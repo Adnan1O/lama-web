@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './General.css';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
+import { Oval } from "react-loader-spinner";
+
 const General = ({params}) => {
   const [chatbotName, setChatbotName] = useState('');
   const [welcomeMessage, setWelcomeMessage] = useState('');
   const [inputPlaceholder, setInputPlaceholder] = useState('');
+  const [loading, setLoading] = useState(false)
   const BASE_URL = process.env.BASE_URL || "https://app.sheikhafatimahospital.com/api";
 
   const checkValues=async()=>{
@@ -26,6 +29,7 @@ const General = ({params}) => {
 
   const submitDetails = async (e) => {
     e.preventDefault()
+    setLoading(true)
     try {
       const body = {
         project:params.id,
@@ -33,7 +37,6 @@ const General = ({params}) => {
         welcomeMessage,
         inputPlaceholder,
       };
-console.log(body)
       const response = await fetch(`${BASE_URL}/chatbotconfig`, {
         method: 'POST',
         headers: {
@@ -42,12 +45,16 @@ console.log(body)
         body: JSON.stringify(body),
       });
       if (!response.ok) {
+    setLoading(false)
         return toast.error('error occured try later')
      }
+    setLoading(false)
       const jsonData = await response.json();
       console.log(jsonData);
       toast.success('details updated successfully')
     } catch (error) {
+    setLoading(false)
+    toast.error('error occured try later')
       console.error(error);
     }
   };
@@ -84,7 +91,21 @@ console.log(body)
         />
         <small>Lorem ipsum dolor sit Lorem ipsum dolor sit</small>
       </div>
-      <button onClick={submitDetails}>Submit</button>
+      <button onClick={submitDetails}>{
+            loading ? (
+              <Oval
+              visible={true}
+              height="20"
+              width="50"
+              color="#ffffff"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+            ):(
+            "Submit"
+            )
+          }</button>
       <ToastContainer 
         closeButton={false}
         position="top-center"/>
