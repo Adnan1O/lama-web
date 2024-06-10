@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     max-width: 800px;
 }
 .trans-header .saveDiscard{
@@ -46,4 +47,11 @@
 }
 .transcript-area  .edit-btn-active{
     background-color: #7E22CE;
+}
+@media (max-width:500px) {
+    .trans-header{
+       gap: 1rem;
+       padding-bottom: 1rem;
+}
+
 }
