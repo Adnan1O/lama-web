@@ -85,3 +85,9 @@
     font-size: 1rem;
     border-radius: 0.5rem;
 }
+@media (max-width:700px) {
+.popup-container {
+    width: 90%;
+
+}
+}

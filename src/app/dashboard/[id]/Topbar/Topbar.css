@@ -23,3 +23,11 @@
 .topbar .topbar-two svg{
     font-size: 1.8rem;
 }
+@media (max-width:500px) { 
+    .topbar{
+        padding-left: 1rem;
+    }
+    .topbar .topbar-two svg{
+        font-size: 1.5rem;
+    }
+}

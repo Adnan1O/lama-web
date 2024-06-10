@@ -9,6 +9,7 @@
 }
 .profile-area{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
     color: #3C3C3C;
@@ -76,4 +77,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media (max-width:500px) {
+    .profile-area{
+        gap: 1rem;
+    }
+    .subscription .plan{
+        display: flex;
+        align-items: center;
+    }
 }

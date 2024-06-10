@@ -5,17 +5,28 @@ import "./Sidebar.css"
 import Link from 'next/link'
 import { LuSettings } from "react-icons/lu";
 import { usePathname } from 'next/navigation'
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useState } from 'react'
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const SideBar = ({params}) => {
 const pathname = usePathname()
-    const firstSegment = pathname.split('/')[3] || 'upload'
+const firstSegment = pathname.split('/')[3] || 'upload'
+const [open, setOpen] = useState(false)
+
+
   return (
-    <div className='sidebar'>
+    <div className="sidebar-container">
+      <GiHamburgerMenu className='menu-btn' onClick={()=>setOpen(true)} />
+    <div className={open? "sidebar open" : 'sidebar'}>
      <div className="header-area">
       <Link href='/' >
      <Image src={logo} width={170} height={170} alt='LAMA' />
      </Link>
+     <div className="close-btn-area">
      <small>Podcast Upload Flow</small>
+     <IoCloseCircleOutline className='close-btn-sidebar' onClick={()=>setOpen(false)} />
+     </div>
      </div>
      <ul >
      <Link href={`/dashboard/${params.id}/`}>
@@ -30,6 +41,7 @@ const pathname = usePathname()
         <li className={firstSegment === 'setting' ? 'active setting' : "setting"}><span><LuSettings/></span>Settings</li>
         </Link>
      </ul>
+    </div>
     </div>
   )
 }

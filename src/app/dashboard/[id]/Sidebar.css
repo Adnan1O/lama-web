@@ -57,8 +57,35 @@
     align-items: start;
     justify-content: start;
 }
+.sidebar-container .menu-btn{
+   display: none;
+}
+.close-btn-sidebar{
+    display: none;
+}
 @media (max-width:500px) {
+    .close-btn-sidebar{
+        display: block;
+        font-size: 1.5rem;
+    }
+    .close-btn-area{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     .sidebar{
         display: none;
+
+    }
+    .open{
+        display: flex;
+        position: absolute;
+    }
+    .sidebar-container .menu-btn{
+        display: block;
+        position: absolute;
+        top: 2.3rem;
+        left:1rem;
+        font-size: 1.2rem;
     }
 }
